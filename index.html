@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Finder | Tech Agency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <div class="logo">
+            <!-- Logo GitHub SVG -->
+            <svg height="32" viewBox="0 0 16 16" width="32" fill="#f0f6fc">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+            <h1>GitHub <span>Finder</span></h1>
+          
+        </div>
+        <div class="nav-actions">
+            <button id="showBookmarksBtn" class="bookmark-badge">
+                🔖 Bookmarks : <span id="bookmarkCount">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Zone de recherche géante -->
+    <header class="hero-search">
+        <div class="search-wrapper">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Rechercher un développeur (ex: BinaryQueen)..." autocomplete="off">
+                <button id="searchBtn">Rechercher</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <!-- État : Bienvenue -->
+        <section id="welcomeState" class="state-view">
+            <h2>Prêt pour le sourcing ?</h2>
+            <p>Entrez un pseudo pour explorer les talents GitHub.</p>
+        </section>
+
+        <!-- État : Chargement -->
+        <section id="loadingState" class="state-view hidden">
+            <div class="loader"></div>
+            <p>Consultation de l'API GitHub...</p>
+        </section>
+
+        <!-- État : Erreur -->
+        <section id="errorState" class="state-view hidden">
+            <div class="error-card">
+                <span class="error-icon">⚠️</span>
+                <p id="errorMessage">Utilisateur non trouvé</p>
+            </div>
+        </section>
+
+        <!-- Section Résultats -->
+        <section id="resultsContainer" class="hidden">
+            <div id="userProfile"></div>
+            <div class="repos-header">
+                <h3>Dépôts Publics</h3>
+            </div>
+            <div id="reposList" class="repos-grid"></div>
+        </section>
+
+        <!-- Section Bookmarks -->
+        <section id="bookmarksSection" class="hidden">
+            <div class="section-header">
+                <h3>Candidats Sauvegardés</h3>
+                <button id="closeBookmarks" class="btn-text">← Retour</button>
+            </div>
+            <div id="bookmarksList" class="bookmarks-grid"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
